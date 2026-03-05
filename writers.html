@@ -75,11 +75,12 @@ body { background: #fff; color: var(--ink); font-family: 'Space Grotesk', sans-s
 .pub-credits { border-top: 1px solid var(--rule); padding-top: 1.5rem; font-size: 0.84rem; font-weight: 300; color: var(--muted); line-height: 1.8; }
 .pub-credits-label { font-size: 0.5rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 0.5rem; }
 
-.page-nav { display: flex; justify-content: space-between; align-items: center; padding: 2rem 2.5rem 3rem; border-top: 1px solid var(--rule); margin-top: 2rem; }
+.page-nav { position: fixed; bottom: 0; left: 0; right: 0; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2.5rem 1rem calc(var(--sidebar) + 2.5rem); background: rgba(255,255,255,0.55); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid rgba(224,224,224,0.6); z-index: 30; }
 .page-nav a { font-size: 0.72rem; font-weight: 400; color: var(--mid); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
 .page-nav a:hover { color: var(--ink); }
 .page-nav .nav-pink { color: var(--accent); }
 .page-nav .nav-pink:hover { opacity: 0.7; }
+.page-nav .nav-email { font-size: 0.68rem; color: var(--muted); }
 
 
 /* horizontal bar */
@@ -159,27 +160,11 @@ body { background: #fff; color: var(--ink); font-family: 'Space Grotesk', sans-s
   .about-photo-wrap { width: 140px !important; margin: 0 auto !important; }
   .cs-title { font-size: 2.5rem !important; }
   .fs-grid, .wins-grid, .pillars-grid, .formats-grid { grid-template-columns: 1fr !important; }
+  .role-strip, .wins, .skill-strip { grid-template-columns: 1fr !important; display: grid !important; }
+  .role-item { border-right: none !important; border-bottom: 1px solid var(--rule); }
+  .role-item:last-child { border-bottom: none !important; }
+  .stat-grid { grid-template-columns: 1fr 1fr !important; }
 }
-
-/* ── FLOATING FOOTER ── */
-.page-nav {
-  position: fixed; bottom: 0; left: 0; right: 0;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 1rem 2.5rem 1rem calc(var(--sidebar, 195px) + 2.5rem);
-  background: rgba(255,255,255,0.55);
-  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-  border-top: 1px solid rgba(224,224,224,0.6); z-index: 30;
-}
-.page-nav a { font-size: 0.72rem; font-weight: 400; color: var(--mid, #5a5a5a); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
-.page-nav a:hover { color: var(--ink, #2a2a2a); }
-.page-nav .nav-pink { color: var(--accent, #e8a0c0); }
-.page-nav .nav-email { font-size: 0.68rem; color: var(--muted, #999); text-decoration: none; }
-.page-nav .nav-email:hover { color: var(--ink, #2a2a2a); }
-
-/* ── SIDEBAR FONT SIZES ── */
-.sidebar-name { font-size: 0.85rem !important; }
-.sidebar-roles { font-size: 0.75rem !important; }
-.sidebar-link { font-size: 0.75rem !important; }
 </style>
 </head>
 <body>
@@ -223,22 +208,6 @@ body { background: #fff; color: var(--ink); font-family: 'Space Grotesk', sans-s
         <div class="pub-row"><div class="pub-dot"></div><span class="pub-name">Wired</span><span class="pub-type">Tech · Culture</span></div>
       </div>
 
-      <!-- SKILLS BREAKDOWN -->
-      <div class="skill-strip">
-        <div class="skill-cell">
-          <span class="skill-name">Developmental Editing</span>
-          <div class="skill-desc">Manuscript-level structure, arc, and voice work — from pitch to publishable draft</div>
-        </div>
-        <div class="skill-cell">
-          <span class="skill-name">Scriptwriting</span>
-          <div class="skill-desc">Platform-native scripts for digital brands — short form, long form, and branded content</div>
-        </div>
-        <div class="skill-cell">
-          <span class="skill-name">Copywriting</span>
-          <div class="skill-desc">Brand voice, campaign copy, and editorial content adapted across audiences and tones</div>
-        </div>
-      </div>
-
       <!-- WINS -->
       <div class="wins">
         <div class="win-cell">
@@ -263,7 +232,7 @@ body { background: #fff; color: var(--ink); font-family: 'Space Grotesk', sans-s
       </div>
 
     <div class="page-nav">
-  <a href="maison-toto.html">← Maison Toto</a>
+  <a href="index.html">← Home</a>
   <a class="nav-email" href="#" data-em></a>
   <a class="nav-pink" href="lemetro.html">LE MÉTRO →</a>
 </div>

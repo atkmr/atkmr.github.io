@@ -40,7 +40,7 @@ html, body { height: 100%; overflow: hidden; font-family: 'Space Grotesk', sans-
 .cs-intro { font-size: 1.05rem; font-weight: 300; line-height: 1.9; max-width: 720px; margin-bottom: 4rem; border-top: 1px solid var(--rule); padding-top: 2.5rem; }
 
 /* ── SECTION LABELS ── */
-.section-label { font-size: 0.6rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; padding-bottom: 0.75rem; display: flex; align-items: center; gap: 1rem; }
+.section-label { font-size: 0.6rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--rule); display: flex; align-items: center; gap: 1rem; }
 
 .section-block { margin-bottom: 4rem; }
 
@@ -104,13 +104,38 @@ html, body { height: 100%; overflow: hidden; font-family: 'Space Grotesk', sans-
 
       <div class="cs-header">
         <h1 class="cs-title"><em>LE MÉTRO</em></h1>
-        <div class="cs-meta">Publication · Editorial Direction · Cultural Criticism · Audience Growth · Social Strategy</div>
+        <div class="cs-meta">Publication · Editorial Direction · Cultural Criticism · Audience Growth</div>
         <div style="margin-top:1rem;font-size:0.68rem;font-weight:300;color:#666;letter-spacing:0.08em;">
           Read on <a href="https://lemetro.substack.com" target="_blank" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px;">Substack</a>
         </div>
       </div>
 
-      <p class="cs-intro">Founded and edited LE MÉTRO, a Substack publication exploring literature and culture through close reading and critical essay. Responsible for all aspects of the publication — concept development, writing, editing, visual identity, audience growth strategy, and paid and organic social campaigns.</p>
+      <p class="cs-intro">Founded and edited LE MÉTRO, a Substack publication exploring literature and culture through close reading and critical essay. Responsible for all aspects of the publication — concept development, writing, editing, visual identity, and organic audience growth strategy.</p>
+
+      <!-- FEATURED ESSAYS -->
+      <div class="section-block">
+        <div class="section-label">Featured Essays</div>
+        <ul class="essay-list">
+          <li class="essay-item">
+            <a href="https://lemetro.substack.com/p/clarices-bright-morning" target="_blank" style="text-decoration:none;color:inherit;display:flex;justify-content:space-between;align-items:baseline;width:100%;gap:1rem;">
+              <span class="essay-title">+ Clarice's Bright Morning</span>
+              <span class="essay-meta">A look at light in Clarice Lispector's "The Triumph"</span>
+            </a>
+          </li>
+          <li class="essay-item">
+            <a href="https://lemetro.substack.com/p/clarices-carceral-apparatus" target="_blank" style="text-decoration:none;color:inherit;display:flex;justify-content:space-between;align-items:baseline;width:100%;gap:1rem;">
+              <span class="essay-title">+ Clarice's Carceral Apparatus</span>
+              <span class="essay-meta">And a chicken's self-proclamation</span>
+            </a>
+          </li>
+          <li class="essay-item">
+            <a href="https://lemetro.substack.com/p/clarices-ecological-ethics" target="_blank" style="text-decoration:none;color:inherit;display:flex;justify-content:space-between;align-items:baseline;width:100%;gap:1rem;">
+              <span class="essay-title">+ Clarice's Ecological Ethics</span>
+              <span class="essay-meta">Between the semiotic and "some trace of an animal"</span>
+            </a>
+          </li>
+        </ul>
+      </div>
 
       <!-- STATS -->
       <div class="section-block">
@@ -125,8 +150,8 @@ html, body { height: 100%; overflow: hidden; font-family: 'Space Grotesk', sans-
             <div class="stat-label">Close Reading · Cultural Criticism · Theory</div>
           </div>
           <div class="stat-item">
-            <div class="stat-num">Paid +<br>Organic</div>
-            <div class="stat-label">Social Campaign Management</div>
+            <div class="stat-num">Organic<br>Growth</div>
+            <div class="stat-label">Audience Development Strategy</div>
           </div>
         </div>
       </div>
@@ -137,7 +162,7 @@ html, body { height: 100%; overflow: hidden; font-family: 'Space Grotesk', sans-
         <div class="role-grid">
           <div class="role-item">
             <div class="role-title">Editorial Direction</div>
-            <div class="role-desc">Develop timely essay concepts. Conduct research and perform theoretical inquiries and close readings. Write and edit essays with attention to reader profiles and cultural moment.</div>
+            <div class="role-desc">Develop timely essay concepts through close reading and critical inquiry. Write and edit long-form pieces exploring literature, culture, and narrative craft.</div>
           </div>
           <div class="role-item">
             <div class="role-title">Visual Identity</div>
@@ -145,11 +170,11 @@ html, body { height: 100%; overflow: hidden; font-family: 'Space Grotesk', sans-
           </div>
           <div class="role-item">
             <div class="role-title">Audience Growth</div>
-            <div class="role-desc">Design mission-driven growth strategies. Analyze audience engagement data to refine content and distribution. Build and maintain subscriber relationships.</div>
+            <div class="role-desc">Design organic growth strategies. Analyze audience engagement to refine content and distribution. Build and maintain subscriber relationships.</div>
           </div>
           <div class="role-item">
-            <div class="role-title">Social &amp; Campaigns</div>
-            <div class="role-desc">Create promotional materials and manage paid and organic social campaigns across platforms to grow readership and drive subscriptions.</div>
+            <div class="role-title">Publication Management</div>
+            <div class="role-desc">Manage publishing schedule, content calendar, and editorial standards. Coordinate all aspects of production from concept to publication.</div>
           </div>
         </div>
       </div>
@@ -162,7 +187,7 @@ html, body { height: 100%; overflow: hidden; font-family: 'Space Grotesk', sans-
 <div class="page-nav">
   <a href="writers.html">← Studio R–M</a>
   <a class="nav-email" href="#" data-em></a>
-  <a class="nav-pink" href="vawaa.html">VAWAA →</a>
+  <a class="nav-pink" href="jellysmack_viz.html">Jellysmack →</a>
 </div>
 
 <div class="ink-drop" id="cursor"></div>

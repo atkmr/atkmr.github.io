@@ -7,112 +7,35 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --ink: #2a2a2a; --mid: #5a5a5a; --muted: #999;
-  --pink: #e8a0c0; --rule: #e0e0e0;
-  --sidebar: 195px; --inset: 195px;
-}
-
-html, body {
-  height: 100%;
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 300;
-  background: #fff;
-  color: var(--ink);
-}
-
+:root { --ink: #2a2a2a; --mid: #5a5a5a; --muted: #999; --pink: #e8a0c0; --rule: #e0e0e0; --sidebar: 195px; --inset: 195px; }
+html, body { height: 100%; font-family: 'Space Grotesk', sans-serif; font-weight: 300; background: #fff; color: var(--ink); }
 .layout { display: flex; height: 100vh; }
-
-/* ── SIDEBAR ── */
-.sidebar {
-  width: var(--sidebar); flex-shrink: 0; height: 100vh;
-  position: fixed; left: 0; top: 0;
-  display: flex; flex-direction: column; align-items: flex-end; text-align: right;
-  padding: 2.2rem 1.5rem 2rem 0.75rem;
-  background: #fff; z-index: 20;
-}
+.sidebar { width: var(--sidebar); flex-shrink: 0; height: 100vh; position: fixed; left: 0; top: 0; display: flex; flex-direction: column; align-items: flex-end; text-align: right; padding: 2.2rem 1.5rem 2rem 0.75rem; background: #fff; z-index: 20; }
 .sidebar-name { font-size: 0.84rem; font-weight: 500; letter-spacing: 0.04em; line-height: 1.35; color: var(--ink); }
 .sidebar-roles { font-size: 0.76rem; font-weight: 300; color: var(--mid); line-height: 1.65; margin-top: 0.35rem; }
 .sidebar-logo { margin-top: 1.1rem; width: 64px; height: 64px; object-fit: contain; }
 .sidebar-link { margin-top: 1rem; font-size: 0.76rem; font-weight: 300; color: var(--mid); text-decoration: none; letter-spacing: 0.01em; }
 .sidebar-link:hover { color: var(--ink); }
-
-/* ── SCROLL ── */
-.scroll-area {
-  width: 100%; height: 100vh;
-  overflow-y: auto; overflow-x: hidden;
-  background: #fff;
-}
-
-/* ── ENTRY ── */
+.scroll-area { width: 100%; height: 100vh; overflow-y: auto; overflow-x: hidden; background: #fff; }
 .entry { padding: 2rem var(--inset) 0 var(--sidebar); }
-
-.entry-video {
-  width: 100%; aspect-ratio: 21/9;
-  background: #111; overflow: hidden; position: relative;
-}
+.entry-video { width: 100%; aspect-ratio: 21/9; min-height: 80px; background: #111; overflow: hidden; position: relative; }
 .entry-video video, .entry-video img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.entry-video-ph {
-  width: 100%; height: 100%;
-  display: flex; align-items: center; justify-content: center;
-}
-.entry-video-ph span {
-  font-size: 0.5rem; font-weight: 300; letter-spacing: 0.2em;
-  text-transform: uppercase; color: rgba(255,255,255,0.18);
-}
-
-/* ── CAPTION ── */
-.entry-caption {
-  padding: 0.75rem 0 2rem;
-  font-size: 0.86rem; font-weight: 300; color: var(--mid);
-  border-bottom: 1px solid var(--rule);
-  display: flex; align-items: baseline; justify-content: center;
-  gap: 0.4rem; flex-wrap: wrap;
-}
+.entry-video-ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+.entry-video-ph span { font-size: 0.5rem; font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.18); }
+.entry-caption { padding: 0.75rem 0 2rem; font-size: 0.86rem; font-weight: 300; color: var(--mid); border-bottom: 1px solid var(--rule); display: flex; align-items: baseline; justify-content: center; gap: 0.4rem; flex-wrap: wrap; }
 .t-title { font-weight: 500; color: var(--ink); font-size: 0.86rem; letter-spacing: 0.03em; }
-.t-sep   { color: var(--rule); }
-.t-sub   { font-style: italic; color: var(--mid); }
-.t-cta   {
-  color: var(--pink); text-decoration: underline;
-  text-underline-offset: 3px; text-decoration-color: var(--pink);
-  font-weight: 300; transition: opacity 0.2s;
-}
+.t-sep { color: var(--rule); }
+.t-sub { font-style: italic; color: var(--mid); }
+.t-cta { color: var(--pink); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--pink); font-weight: 300; transition: opacity 0.2s; }
 .t-cta:hover { opacity: 0.6; }
-
-/* FOOTER */
-.site-footer {
-  padding: 1.25rem var(--inset) 3rem var(--sidebar);
-  font-size: 0.68rem; font-weight: 300; color: var(--muted); text-align: center;
-}
+.site-footer { padding: 1.25rem var(--inset) 3rem var(--sidebar); font-size: 0.68rem; font-weight: 300; color: var(--muted); text-align: center; }
 .site-footer a { color: var(--muted); text-decoration: none; }
 .site-footer a:hover { color: var(--ink); }
-
-/* ── INK DROP CURSOR ── */
 *, *::before, *::after { cursor: none !important; }
-.ink-drop {
-  position: fixed; top: 0; left: 0;
-  width: 10px; height: 10px;
-  background: #e8a0c0; border-radius: 50%;
-  pointer-events: none; z-index: 99999;
-  transform: translate(-50%, -50%);
-  will-change: transform;
-  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
-}
-.ink-drop.hovering {
-  width: 20px; height: 20px;
-  background: transparent;
-  border: 1.5px solid #e8a0c0;
-}
-
-/* ── SIDEBAR SCROLL PASSTHROUGH ── */
-.sidebar {
-  pointer-events: none;
-}
-.sidebar * {
-  pointer-events: auto;
-}
-
+.ink-drop { position: fixed; top: 0; left: 0; width: 10px; height: 10px; background: #e8a0c0; border-radius: 50%; pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); will-change: transform; transition: width 0.2s ease, height 0.2s ease, background 0.2s ease; }
+.ink-drop.hovering { width: 20px; height: 20px; background: transparent; border: 1.5px solid #e8a0c0; }
+.sidebar { pointer-events: none; }
+.sidebar * { pointer-events: auto; }
 .sidebar-name { font-size: 0.85rem !important; }
 .sidebar-roles { font-size: 0.75rem !important; }
 .sidebar-link { font-size: 0.75rem !important; }
@@ -131,20 +54,33 @@ html, body {
 </head>
 <body>
 <div class="layout">
-
   <aside class="sidebar">
     <div class="sidebar-name">KRISTIL<br>RABIDEAU</div>
-    <div class="sidebar-roles">
-      Content Creation<br>
-      Editorial Direction<br>
-      Social Management
-    </div>
+    <div class="sidebar-roles">Content Creation<br>Editorial Direction<br>Social Management</div>
     <img src="logo.gif" class="sidebar-logo" alt="">
     <a class="sidebar-link" href="about.html">→ Information</a>
   </aside>
-
   <main class="scroll-area">
-
+    <div class="entry">
+      <div class="entry-video" style="background:#1c1c1c;">
+        <img src="studio-rm.gif" style="width:100%;height:100%;object-fit:cover;" alt="Studio R-M">
+      </div>
+      <div class="entry-caption">
+        <span class="t-title">STUDIO R–M</span><span class="t-sep">|</span>
+        <span class="t-sub">Scriptwriting, Copywriting + Developmental Editing</span><span class="t-sep">|</span>
+        <a class="t-cta" href="writers.html">See the work →</a>
+      </div>
+    </div>
+    <div class="entry">
+      <div class="entry-video" style="background:#f5f0eb;">
+        <img src="lemetro.gif" style="width:100%;height:100%;object-fit:cover;" alt="LE MÉTRO">
+      </div>
+      <div class="entry-caption">
+        <span class="t-title">LE MÉTRO</span><span class="t-sep">|</span>
+        <span class="t-sub">Publication · Editorial Direction · Cultural Criticism</span><span class="t-sep">|</span>
+        <a class="t-cta" href="lemetro.html">See the work →</a>
+      </div>
+    </div>
     <div class="entry">
       <div class="entry-video">
         <video src="jellysmack.mp4" autoplay muted loop playsinline></video>
@@ -156,7 +92,6 @@ html, body {
         <a class="t-cta" href="jellysmack_viz.html">See the results →</a>
       </div>
     </div>
-
     <div class="entry">
       <div class="entry-video">
         <video src="pers.mp4" autoplay muted loop playsinline></video>
@@ -168,7 +103,6 @@ html, body {
         <a class="t-cta" href="pers.html">See the results →</a>
       </div>
     </div>
-
     <div class="entry">
       <div class="entry-video">
         <video src="maison-toto.mp4" autoplay muted loop playsinline></video>
@@ -180,29 +114,6 @@ html, body {
         <a class="t-cta" href="maison-toto.html">See the results →</a>
       </div>
     </div>
-
-    <div class="entry">
-      <div class="entry-video" style="background:#1c1c1c;">
-        <img src="studio-rm.gif" style="width:100%;height:100%;object-fit:cover;" alt="Studio R-M">
-      </div>
-      <div class="entry-caption">
-        <span class="t-title">STUDIO R–M</span><span class="t-sep">|</span>
-        <span class="t-sub">Scriptwriting, Copywriting + Developmental Editing</span><span class="t-sep">|</span>
-        <a class="t-cta" href="writers.html">See the results →</a>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-video" style="background:#f5f0eb;">
-        <img src="lemetro.gif" style="width:100%;height:100%;object-fit:cover;" alt="LE MÉTRO">
-      </div>
-      <div class="entry-caption">
-        <span class="t-title">LE MÉTRO</span><span class="t-sep">|</span>
-        <span class="t-sub">Publication · Editorial Direction · Cultural Criticism</span><span class="t-sep">|</span>
-        <a class="t-cta" href="lemetro.html">See the work →</a>
-      </div>
-    </div>
-
     <div class="entry">
       <div class="entry-video" style="background:#f0eef8;">
         <img src="vawaa.gif" style="width:100%;height:100%;object-fit:cover;" alt="VAWAA">
@@ -213,10 +124,10 @@ html, body {
         <a class="t-cta" href="vawaa.html">See the results →</a>
       </div>
     </div>
-
     <div class="entry">
       <div class="entry-video" style="background:#0d0d0d;">
         <video src="nike-boxing.mp4" autoplay muted loop playsinline></video>
+        <div class="entry-video-ph"><span>Nike Boxing · Setting Things on Fire · City of Love</span></div>
       </div>
       <div class="entry-caption">
         <span class="t-title">FILM & SPEC</span><span class="t-sep">|</span>
@@ -224,43 +135,30 @@ html, body {
         <a class="t-cta" href="film.html">See the work →</a>
       </div>
     </div>
-
-    
-
-    <footer class="site-footer">
-      &nbsp;
-    </footer>
-
+    <footer class="site-footer">&nbsp;</footer>
   </main>
 </div>
-
 <script>
 (function() {
   const drop = document.createElement('div');
   drop.className = 'ink-drop';
   drop.id = 'inkDrop';
   document.body.appendChild(drop);
-  let cx = -100, cy = -100, px = -100, py = -100;
-  let vx = 0, vy = 0;
-
+  let cx = -100, cy = -100, px = -100, py = -100, vx = 0, vy = 0;
   document.addEventListener('mousemove', e => { cx = e.clientX; cy = e.clientY; });
   document.addEventListener('mouseleave', () => drop.style.opacity = '0');
   document.addEventListener('mouseenter', () => drop.style.opacity = '1');
-
   const interactables = 'a, button, .t-cta, .sidebar-link';
   document.querySelectorAll(interactables).forEach(el => {
     el.addEventListener('mouseenter', () => drop.classList.add('hovering'));
     el.addEventListener('mouseleave', () => drop.classList.remove('hovering'));
   });
-
   function lerp(a, b, t) { return a + (b - a) * t; }
-
   function tick() {
     vx = cx - px; vy = cy - py;
     const speed = Math.sqrt(vx*vx + vy*vy);
     px = lerp(px, cx, 0.28);
     py = lerp(py, cy, 0.28);
-
     if (!drop.classList.contains('hovering')) {
       const stretch = Math.min(speed * 0.18, 1.8);
       const angle = Math.atan2(vy, vx) * 180 / Math.PI;
@@ -270,40 +168,20 @@ html, body {
     } else {
       drop.style.transform = 'translate(-50%, -50%)';
     }
-
     drop.style.left = px + 'px';
     drop.style.top  = py + 'px';
-
     requestAnimationFrame(tick);
   }
   tick();
 })();
 </script>
-
-
 <script>
-// scroll-passthrough: wheel on sidebar scrolls main content
 (function() {
-  function getScroller() {
-    return document.querySelector('.scroll-area') || document.querySelector('main') || document.documentElement;
-  }
+  function getScroller() { return document.querySelector('.scroll-area') || document.querySelector('main') || document.documentElement; }
   var sidebar = document.querySelector('.sidebar');
   if (!sidebar) return;
-  sidebar.addEventListener('wheel', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    var s = getScroller();
-    s.scrollTop += e.deltaY * 1.2;
-  }, { passive: false });
-  sidebar.addEventListener('touchmove', function(e) {
-    e.preventDefault();
-  }, { passive: false });
-})();
-</script>
-<script>
-(function(){
-  var u='rabideaukristil',d='gmail.com';
-  document.querySelectorAll('[data-em]').forEach(function(a){a.href='mailto:'+u+'@'+d;a.textContent=u+'@'+d;});
+  sidebar.addEventListener('wheel', function(e) { e.preventDefault(); e.stopPropagation(); var s = getScroller(); s.scrollTop += e.deltaY * 1.2; }, { passive: false });
+  sidebar.addEventListener('touchmove', function(e) { e.preventDefault(); }, { passive: false });
 })();
 </script>
 </body>
