@@ -6,7 +6,7 @@
 <title>About — Kristil Rabideau</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; cursor: none !important; }
 :root { --ink: #2a2a2a; --mid: #5a5a5a; --muted: #999; --pink: #e8a0c0; --rule: #e0e0e0; --sidebar: 195px; }
 html, body { height: 100%; overflow: hidden; font-family: 'Space Grotesk', sans-serif; font-weight: 300; background: #fff; color: var(--ink); }
 .layout { display: flex; height: 100vh; }
@@ -24,19 +24,18 @@ html, body { height: 100%; overflow: hidden; font-family: 'Space Grotesk', sans-
 .about-body { flex: 1; font-size: 0.88rem; font-weight: 300; line-height: 1.9; color: var(--ink); }
 .about-body p { margin-bottom: 1.1rem; }
 .about-body p:last-child { margin-bottom: 0; }
-.about-photo-wrap { flex-shrink: 0; width: 180px; margin-top: 0.25rem; animation: float-bob 5s ease-in-out infinite; }
+.about-photo-wrap { flex-shrink: 0; width: 260px; margin-top: 0.25rem; animation: float-bob 5s ease-in-out infinite; }
 .about-photo-wrap img { width: 100%; border-radius: 50%; display: block; filter: grayscale(100%); }
 @keyframes float-bob { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
 .about-footer { position: fixed; bottom: 0; left: 0; right: 0; display: flex; gap: 3rem; align-items: center; padding: 1rem 2.5rem 1rem calc(var(--sidebar) + 2.5rem); background: rgba(255,255,255,0.6); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid rgba(224,224,224,0.6); z-index: 30; }
 .contact-label { font-size: 0.55rem; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: var(--pink); margin-bottom: 0.2rem; display: block; }
 .contact-val { font-size: 0.78rem; font-weight: 300; color: var(--ink); text-decoration: none; }
 .contact-val:hover { color: var(--pink); }
-*, *::before, *::after { cursor: none !important; }
 .ink-drop { position: fixed; top: 0; left: 0; width: 10px; height: 10px; background: var(--pink); border-radius: 50%; pointer-events: none; z-index: 99999; transform: translate(-50%,-50%); will-change: transform; transition: width 0.18s, height 0.18s; }
 .ink-drop.hovering { width: 28px; height: 28px; background: transparent; border: 1.5px solid var(--pink); animation: ink-pulse 0.85s ease-in-out infinite; }
 @keyframes ink-pulse { 0%, 100% { transform: translate(-50%,-50%) scale(1); opacity: 0.9; } 50% { transform: translate(-50%,-50%) scale(1.18); opacity: 0.45; } }
 @media (max-width: 768px) {
-  html, body { overflow: hidden auto; height: auto; }
+  html, body { overflow: auto; height: auto; }
   .layout { flex-direction: column; height: auto; }
   .sidebar { position: relative; width: 100%; height: auto; flex-direction: row; align-items: center; text-align: left; padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--rule); flex-wrap: wrap; gap: 0.5rem; }
   .sidebar-roles { display: none; }
@@ -80,7 +79,7 @@ html, body { height: 100%; overflow: hidden; font-family: 'Space Grotesk', sans-
 <div class="about-footer">
   <div>
     <span class="contact-label">Email</span>
-    <a class="contact-val" href="#" data-em></a>
+    <a class="contact-val" id="em" href="#"> </a>
   </div>
   <div>
     <span class="contact-label">Phone</span>
@@ -88,36 +87,52 @@ html, body { height: 100%; overflow: hidden; font-family: 'Space Grotesk', sans-
   </div>
 </div>
 
+<div class="ink-drop" id="cursor"></div>
+
 <script>
 (function() {
+  // email
+  var a = document.getElementById('em');
+  var e = 'rabideaukristil' + '@' + 'gmail' + '.com';
+  a.href = 'mailto:' + e;
+  a.textContent = e;
+
   // cursor
-  var drop = document.createElement('div');
-  drop.className = 'ink-drop';
-  document.body.appendChild(drop);
+  var drop = document.getElementById('cursor');
   var cx = -100, cy = -100, px = -100, py = -100;
   document.addEventListener('mousemove', function(e) { cx = e.clientX; cy = e.clientY; });
   document.addEventListener('mouseleave', function() { drop.style.opacity = '0'; });
   document.addEventListener('mouseenter', function() { drop.style.opacity = '1'; });
-  document.querySelectorAll('a, button, .sidebar-link').forEach(function(el) {
+  document.querySelectorAll('a, button').forEach(function(el) {
     el.addEventListener('mouseenter', function() { drop.classList.add('hovering'); });
     el.addEventListener('mouseleave', function() { drop.classList.remove('hovering'); });
   });
   function lerp(a, b, t) { return a + (b - a) * t; }
   function tick() {
+    var vx = cx - px, vy = cy - py;
+    var speed = Math.sqrt(vx * vx + vy * vy);
     px = lerp(px, cx, 0.28); py = lerp(py, cy, 0.28);
+    if (!drop.classList.contains('hovering')) {
+      var stretch = Math.min(speed * 0.18, 1.8);
+      var angle = Math.atan2(vy, vx) * 180 / Math.PI;
+      drop.style.transform = 'translate(-50%,-50%) rotate(' + angle + 'deg) scaleX(' + (1 + stretch) + ') scaleY(' + Math.max(1 - stretch * 0.45, 0.35) + ')';
+    } else {
+      drop.style.transform = 'translate(-50%,-50%)';
+    }
     drop.style.left = px + 'px'; drop.style.top = py + 'px';
     requestAnimationFrame(tick);
   }
   tick();
+
   // sidebar scroll passthrough
-  var sb = document.querySelector('.sidebar'), sc = document.querySelector('.scroll-area');
-  if (sb && sc) sb.addEventListener('wheel', function(e) { e.preventDefault(); sc.scrollTop += e.deltaY * 1.2; }, { passive: false });
-  // email
-  var u = 'rabideaukristil', d = 'gmail.com';
-  document.querySelectorAll('[data-em]').forEach(function(a) {
-    a.href = 'mailto:' + u + '@' + d;
-    a.textContent = u + '@' + d;
-  });
+  var sb = document.querySelector('.sidebar');
+  var sc = document.querySelector('.scroll-area');
+  if (sb && sc) {
+    sb.addEventListener('wheel', function(e) {
+      e.preventDefault();
+      sc.scrollTop += e.deltaY * 1.2;
+    }, { passive: false });
+  }
 })();
 </script>
 </body>
