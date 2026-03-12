@@ -31,6 +31,7 @@ html, body { height: 100%; font-family: 'Space Grotesk', sans-serif; font-weight
 .site-footer { padding: 1.25rem var(--inset) 3rem var(--sidebar); font-size: 0.68rem; font-weight: 300; color: var(--muted); text-align: center; }
 .site-footer a { color: var(--muted); text-decoration: none; }
 .site-footer a:hover { color: var(--ink); }
+.vid-loading { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:0.7rem; font-weight:300; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.35); pointer-events:none; z-index:2; }
 *, *::before, *::after { cursor: none !important; }
 .ink-drop { position: fixed; top: 0; left: 0; width: 10px; height: 10px; background: #e8a0c0; border-radius: 50%; pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); will-change: transform; transition: width 0.2s ease, height 0.2s ease, background 0.2s ease; }
 .ink-drop.hovering { width: 20px; height: 20px; background: transparent; border: 1.5px solid #e8a0c0; }
@@ -83,7 +84,8 @@ html, body { height: 100%; font-family: 'Space Grotesk', sans-serif; font-weight
     </div>
     <div class="entry">
       <div class="entry-video">
-        <iframe src="https://player.vimeo.com/video/1173048034?autoplay=1&muted=1&loop=1&controls=0&background=1" frameborder="0" allow="autoplay; fullscreen" style="position:absolute;top:50%;left:50%;width:106%;height:106%;transform:translate(-50%,-50%);border:none;" allowfullscreen></iframe>
+        <div class="vid-loading">Loading...</div><video src="jellysmack.mp4" autoplay muted loop playsinline oncanplay="this.previousSibling.style.display='none'"></video>
+        <div class="entry-video-ph"><span>Jellysmack</span></div>
       </div>
       <div class="entry-caption">
         <span class="t-title">JELLYSMACK</span><span class="t-sep">|</span>
@@ -93,7 +95,8 @@ html, body { height: 100%; font-family: 'Space Grotesk', sans-serif; font-weight
     </div>
     <div class="entry">
       <div class="entry-video">
-        <iframe src="https://player.vimeo.com/video/1173048874?autoplay=1&muted=1&loop=1&controls=0&background=1" frameborder="0" allow="autoplay; fullscreen" style="position:absolute;top:50%;left:50%;width:106%;height:106%;transform:translate(-50%,-50%);border:none;" allowfullscreen></iframe>
+        <div class="vid-loading">Loading...</div><video src="pers.mp4" autoplay muted loop playsinline oncanplay="this.previousSibling.style.display='none'"></video>
+        <div class="entry-video-ph"><span>PERS</span></div>
       </div>
       <div class="entry-caption">
         <span class="t-title">PERS</span><span class="t-sep">|</span>
@@ -103,7 +106,8 @@ html, body { height: 100%; font-family: 'Space Grotesk', sans-serif; font-weight
     </div>
     <div class="entry">
       <div class="entry-video">
-        <iframe src="https://player.vimeo.com/video/1173049455?autoplay=1&muted=1&loop=1&controls=0&background=1" frameborder="0" allow="autoplay; fullscreen" style="position:absolute;top:50%;left:50%;width:106%;height:106%;transform:translate(-50%,-50%);border:none;" allowfullscreen></iframe>
+        <div class="vid-loading">Loading...</div><video src="maison-toto.mp4" autoplay muted loop playsinline oncanplay="this.previousSibling.style.display='none'"></video>
+        <div class="entry-video-ph"><span>Maison Toto</span></div>
       </div>
       <div class="entry-caption">
         <span class="t-title">MAISON TOTO</span><span class="t-sep">|</span>
@@ -123,7 +127,8 @@ html, body { height: 100%; font-family: 'Space Grotesk', sans-serif; font-weight
     </div>
     <div class="entry">
       <div class="entry-video" style="background:#0d0d0d;">
-        <iframe src="https://player.vimeo.com/video/1173050776?autoplay=1&muted=1&loop=1&controls=0&background=1" frameborder="0" allow="autoplay; fullscreen" style="position:absolute;top:50%;left:50%;width:106%;height:106%;transform:translate(-50%,-50%);border:none;" allowfullscreen></iframe>
+        <div class="vid-loading">Loading...</div><video src="nike-boxing.mp4" autoplay muted loop playsinline oncanplay="this.previousSibling.style.display='none'"></video>
+        <div class="entry-video-ph"><span>Nike Boxing · Setting Things on Fire · City of Love</span></div>
       </div>
       <div class="entry-caption">
         <span class="t-title">FILM & SPEC</span><span class="t-sep">|</span>
